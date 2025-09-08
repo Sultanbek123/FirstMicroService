@@ -16,6 +16,18 @@ public class ItemService {
         itemRepository.save(item);
     }
     public List<Item> getAllItems(){
-        return itemRepository.findAll();
+        List<Item> items = itemRepository.findAll();
+        if(items.size() == 0){
+            return null;
+        }
+        else{
+            return items;
+        }
+    }
+    public void updateItem(Item updItem){
+        itemRepository.save(updItem);
+    }
+    public void deleteItem(Long id){
+        itemRepository.deleteById(id);
     }
 }
